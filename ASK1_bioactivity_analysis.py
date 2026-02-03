@@ -1,6 +1,10 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import os
+if not os.path.exists("plots"):   #create a plots folder if it doesnt exist
+    os.makedirs("plots")
+
 
 # ---------------------------
 # STEP 1: Load the CSV
@@ -68,11 +72,13 @@ plt.xlabel("IC50 (nM)") #x axis
 plt.ylabel("Number of Compounds") #y axis
 plt.title("ASK1 Compound IC50 Distribution") #Adds a title at the top of the plot
 plt.tight_layout() #adjusts layout to prevent overlap
-plt.show() #displays my plot
+plt.savefig("plots/ic50_hist.png", dpi=300)  # save the plot image in plots/ folder
+plt.show() #displays my plot when i run the script
 
 
 # ---------------------------
 # STEP 7: Save cleaned dataset
 # ---------------------------
 df.to_csv("ASK1_Dataset_cleaned.csv", index=False)
+
 print("Cleaned dataset saved as 'ASK1_Dataset_cleaned.csv'")
