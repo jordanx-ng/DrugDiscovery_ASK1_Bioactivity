@@ -49,7 +49,7 @@ print(df["standard_value"].describe(), "\n")
 
 mean_ic50_per_compound = df.groupby("molecule_chembl_id")["standard_value"].mean()
 print("✅ Mean IC50 per compound (top 10):")
-print(mean_ic50_per_compound.head(10), "\n")
+print(mean_ic50_per_compound.head(10), "\n")  #just shows the first 10 compounds mean IC50 values for visualisation
 
 # ---------------------------
 # STEP 5: Count measurements per compound
@@ -79,6 +79,7 @@ plt.show() #displays my plot when i run the script
 # ---------------------------
 # STEP 7: Save cleaned dataset
 # ---------------------------
-df.to_csv("ASK1_Dataset_cleaned.csv", index=False)
+df.to_csv("ASK1_Dataset_cleaned.csv", index=False) #Saves my current dataframe to a CSV file, but dont save the row numbers as a separate column
+print("Cleaned dataset saved as 'ASK1_Dataset_cleaned.csv'") # Confirms cleaned file saved successfully
 
-print("Cleaned dataset saved as 'ASK1_Dataset_cleaned.csv'")
+
